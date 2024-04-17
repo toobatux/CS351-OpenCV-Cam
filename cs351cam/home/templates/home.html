@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WatchTower Streaming</title>
+    {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <span class="navbar-brand mb-0 ms-5 h1"> WatchTower </span>
+    </nav>
+
+    <div class="container">
+      <div class="row justify-content-center mt-5">
+        <div class="col">
+          <!--<img src="stream.mjpg" width="640" height="480" />-->
+          <div class="card text-center">
+            <h5 class="card-header pt-2 pb-2"><b>W-214 Stream</b></h5>
+            <img src="{% url 'video_feed' %}" />
+            <div class="card-footer text-muted">
+              <p></p>
+            </div>
+          </div>
+
+          <div id="alert-card" class="card mt-5 mb-5">
+            <h5 class="card-header text-center pt-2 pb-2"><b>Motion Activity</b></h5>
+            <div class="card-body justify-content-center" width="854">
+              <table id="alerts-table" class="table table-striped mb-0 pb-0">
+                <thead>
+                            <tr>
+                              <th scope="col">Date</th>
+                              <th scope="col">Start Time</th>
+                              <th scope="col">End Time</th>
+                            </tr>
+                          </thead>
+                <tbody>
+                  {% for alert in alerts %}
+                  <tr>
+                    <td class="">
+                      <span>{{ alert.alertDate }}</span>
+                    </td>
+                    <td class="">
+                      <span>{{ alert.alertStartTime }}</span>
+                    </td>
+                    <td class="">
+                        <span>{{ alert.alertEndTime }}</span>
+                      </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
