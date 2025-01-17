@@ -71,7 +71,7 @@ def detect_motion(frame, prev_frame):
     non_zero_ratio = np.count_nonzero(thresholded_diff) / (thresholded_diff.shape[0] * thresholded_diff.shape[1])
 
     # Set a threshold for the non-zero ratio to determine motion
-    sensitivity_threshold = 0.02  # Adjust this threshold as needed
+    sensitivity_threshold = 0.02  # Adjust this
 
     motion_detected = non_zero_ratio > sensitivity_threshold
 
